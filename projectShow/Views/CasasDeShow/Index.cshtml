@@ -1,0 +1,50 @@
+@model IEnumerable<projectShow.Models.CasasDeShow>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="centralizar">Casas De Show</h1>
+@if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString)){
+<p>
+    <a asp-action="Create">Criar Nova</a>
+</p>
+}
+<table class="table">
+    <thead class="centralizar">
+        <tr>
+            <th>
+                Endereco
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="centralizar">
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDaCasa)
+            </td>
+             @if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString)){
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CasasDeShowId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.CasasDeShowId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.CasasDeShowId">Deletar</a>
+            </td>
+             }else{
+                 <td>
+                     Somente Admins
+                 </td>
+             }
+        </tr>
+}
+    </tbody>
+</table>

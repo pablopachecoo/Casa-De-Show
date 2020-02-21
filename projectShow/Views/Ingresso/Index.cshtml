@@ -1,0 +1,33 @@
+@model IEnumerable<projectShow.Models.Ingresso>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ingressos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Eventos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>Nome do evento:
+                @Html.DisplayFor(modelItem => item.Eventos.NomeDoEvento) 
+            </td>
+            <td>Genero do evento:
+                @Html.DisplayFor(modelItem => item.Eventos.GeneroDoEvento) 
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IngressoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IngressoId">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

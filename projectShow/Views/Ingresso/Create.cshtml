@@ -1,0 +1,36 @@
+@model projectShow.Models.Ingresso
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    var evento = ViewBag.nome;
+    var id = ViewBag.id;
+    var intid = (int)id;
+}
+
+<h1 style="centralizar">Comprando ingresso para o evento "@evento"</h1>
+<h4>Confirmar a compra ?</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div asp-action="Create">
+            <div style="centralizar">
+                @using(Html.BeginForm("Create","Ingresso"))
+                {
+                 <input type="hidden" name="EventosId" value="@intid"/>
+                 <input type="submit" value="Comprar" class="btn btn-primary" />                 
+                }
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar Para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

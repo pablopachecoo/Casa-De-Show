@@ -1,0 +1,9 @@
+<h1>@ViewBag.lista</h1>
+@{
+    var casas = ViewBag.lista;
+}
+
+@foreach (var casa in casas)
+{
+    <p>&copy; @casa.NomeDaCasa - Switchboard</p>
+}

@@ -1,0 +1,93 @@
+@model IEnumerable<projectShow.Models.Eventos>
+@using projectShow.Data
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    var casas = ViewBag.casa;
+}
+<h1 class="centralizar">Eventos Atuais</h1>
+@if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString))
+{
+<p>
+    <a asp-action="Create">Criar novo Evento</a>
+</p>
+}
+<table class="table">
+    <thead>
+        <tr class="centralizar">
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDoEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacidadeDoevento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantidadeDeIngressos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDoEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorDoIngresso)
+            </th>
+            <th class="cabecalho" >
+                @Html.DisplayNameFor(model => model.GeneroDoEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CasasDeShow)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+@foreach (var item in Model) {
+        <tr class="centralizar">
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDoEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadeDoevento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeDeIngressos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDoEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorDoIngresso) R$
+            </td>
+            <td class="cabecalho">
+                <div>@Html.DisplayFor(modelItem => item.GeneroDoEvento)</div>
+                @if (item.GeneroDoEvento == "Rap")
+                {
+                    <img src="http://www.edmdistrict.com/wp-content/uploads/2015/12/Rap-Nation.png" alt="RAP" style="width:128px;height:128px;">
+                }else if(item.GeneroDoEvento == "Rock"){
+                    <img src="https://thunderroadrocks.com/wp-content/uploads/2014/04/Guitar-Lessons-Thunder-Road-Icon-A.png" alt="ROCK" style="width:128px;height:128px;">
+                }else if(item.GeneroDoEvento == "Samba"){
+                    <img src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/64171/Pandeiro.png" alt="SAMBA" style="width:128px;height:128px;">
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CasasDeShow.NomeDaCasa)
+            </td>            
+            <!-- checa se o usuário está logado e se tem a claim de Admin para exibir as opções de Editar, Deletar e ver detalhes-->
+
+            @if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString))
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.EventosId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.EventosId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.EventosId">Delete</a>
+                </td>
+            }
+            <td>
+                <a asp-action="Comprar" asp-route-id="@item.EventosId" asp-route-nome="@item.NomeDoEvento">Comprar</a>
+            </td>
+
+        </tr> 
+}
+    </tbody>
+</table>

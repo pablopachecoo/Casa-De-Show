@@ -1,0 +1,22 @@
+@model projectShow.Models.Eventos
+
+@{
+    ViewData["Comprar"] = "Comprar";
+}
+
+<h1>Comprar</h1>
+
+<h4>Eventos</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Comprar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>                       
+            <input type="hidden" asp-for="EventosId" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

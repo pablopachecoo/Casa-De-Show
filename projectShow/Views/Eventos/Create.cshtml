@@ -1,0 +1,76 @@
+@model projectShow.Models.Eventos
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    var casas = ViewBag.casa;
+}
+<h1>Criar</h1>
+
+<h4>Eventos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeDoEvento" class="control-label"></label>
+                <input asp-for="NomeDoEvento" class="form-control" />
+                <span asp-validation-for="NomeDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapacidadeDoevento" class="control-label"></label>
+                <input asp-for="CapacidadeDoevento" class="form-control" />
+                <span asp-validation-for="CapacidadeDoevento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeDeIngressos" class="control-label"></label>
+                <input asp-for="QuantidadeDeIngressos" class="form-control" />
+                <span asp-validation-for="QuantidadeDeIngressos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDoEvento" class="control-label"></label>
+                <input asp-for="DataDoEvento" class="form-control" />
+                <span asp-validation-for="DataDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorDoIngresso" class="control-label"></label>
+                <input asp-for="ValorDoIngresso" class="form-control" />
+                <span asp-validation-for="ValorDoIngresso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeneroDoEvento" class="control-label"></label>
+                <select input asp-for="GeneroDoEvento" class="form-control" >
+                    <option value="Rock">Rock</option>   
+                    <option value="Samba">Samba</option>   
+                    <option value="Rap">Rap</option>   
+
+                </select>
+                <span asp-validation-for="GeneroDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CasasDeShowId" class="control-label"></label>
+                <select asp-for="CasasDeShowId" class ="form-control" >
+                    @foreach (var item in casas)
+                    {
+                        <option value="@item.CasasDeShowId">@item.NomeDaCasa</option>   
+                    }
+                </select>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

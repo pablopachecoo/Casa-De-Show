@@ -1,0 +1,64 @@
+@model projectShow.Models.Eventos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Eventos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit"> 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EventosId" />
+            <div class="form-group">
+                <label asp-for="NomeDoEvento" class="control-label"></label>
+                <input asp-for="NomeDoEvento" class="form-control" />
+                <span asp-validation-for="NomeDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapacidadeDoevento" class="control-label"></label>
+                <input asp-for="CapacidadeDoevento" class="form-control" />
+                <span asp-validation-for="CapacidadeDoevento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeDeIngressos" class="control-label"></label>
+                <input asp-for="QuantidadeDeIngressos" class="form-control" />
+                <span asp-validation-for="QuantidadeDeIngressos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataDoEvento" class="control-label"></label>
+                <input asp-for="DataDoEvento" class="form-control" />
+                <span asp-validation-for="DataDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorDoIngresso" class="control-label"></label>
+                <input asp-for="ValorDoIngresso" class="form-control" />
+                <span asp-validation-for="ValorDoIngresso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeneroDoEvento" class="control-label"></label>
+                <input asp-for="GeneroDoEvento" class="form-control" />
+                <span asp-validation-for="GeneroDoEvento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CasasDeShowId" class="control-label"></label>
+                <select asp-for="CasasDeShowId" class="form-control" asp-items="ViewBag.CasasDeShowId"></select>
+                <span asp-validation-for="CasasDeShowId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
