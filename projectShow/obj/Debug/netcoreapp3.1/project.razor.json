@@ -20606,11 +20606,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\POPF\\Desktop\\gitt\\projectShow\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\POPF\\Desktop\\gitt\\projectShow\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"

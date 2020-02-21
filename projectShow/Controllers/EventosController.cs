@@ -66,7 +66,7 @@ namespace projectShow.Controllers
         public async Task<IActionResult> Create([Bind("EventosId,NomeDoEvento,CapacidadeDoevento,QuantidadeDeIngressos,DataDoEvento,ValorDoIngresso,GeneroDoEvento,CasasDeShowId")] Eventos eventos)
         {
             if (ModelState.IsValid)
-            {                
+            {
                 ViewBag.casa = _cacontext.CasasDeShow.ToList();
                 _context.Add(eventos);
                 await _context.SaveChangesAsync();

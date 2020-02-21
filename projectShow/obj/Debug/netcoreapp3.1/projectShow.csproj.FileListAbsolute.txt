@@ -968,7 +968,6 @@ C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Event
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Eventos\Index.cshtml.g.cs
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Eventos\teste.cshtml.g.cs
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Ingresso\Create.cshtml.g.cs
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Ingresso\Delete.cshtml.g.cs
 C:\Users\POPF\Desktop\gitt\projectShow\obj\Debug\netcoreapp3.1\Razor\Views\Ingresso\Details.cshtml.g.cs
