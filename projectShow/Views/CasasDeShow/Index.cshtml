@@ -6,10 +6,13 @@
 
 <h1 class="centralizar">Casas De Show</h1>
 @if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString)){
-<p>
-    <a asp-action="Create">Criar Nova</a>
-</p>
+    <p>
+        <div class="centralizar">
+            <a asp-action="Create">Criar Nova</a>
+        </div>
+    </p>
 }
+
 <table class="table">
     <thead class="centralizar">
         <tr>

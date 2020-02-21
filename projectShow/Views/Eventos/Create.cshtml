@@ -6,41 +6,40 @@
 @{
     var casas = ViewBag.casa;
 }
-<h1>Criar</h1>
+<h1>Criar Evento</h1>
 
-<h4>Eventos</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NomeDoEvento" class="control-label"></label>
+                <h5>Nome Do Evento</h5>                
                 <input asp-for="NomeDoEvento" class="form-control" />
                 <span asp-validation-for="NomeDoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CapacidadeDoevento" class="control-label"></label>
+                <h5>Capacidade do Evento</h5>
                 <input asp-for="CapacidadeDoevento" class="form-control" />
                 <span asp-validation-for="CapacidadeDoevento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuantidadeDeIngressos" class="control-label"></label>
+                <h5>Quantidade de Ingressos</h5>
                 <input asp-for="QuantidadeDeIngressos" class="form-control" />
                 <span asp-validation-for="QuantidadeDeIngressos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DataDoEvento" class="control-label"></label>
+                <h5>Dia e Hora</h5>
                 <input asp-for="DataDoEvento" class="form-control" />
                 <span asp-validation-for="DataDoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ValorDoIngresso" class="control-label"></label>
+                <h5>Valor Do Ingresso</h5>
                 <input asp-for="ValorDoIngresso" class="form-control" />
                 <span asp-validation-for="ValorDoIngresso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GeneroDoEvento" class="control-label"></label>
+                <h5>Genero Do Evento</h5>
                 <select input asp-for="GeneroDoEvento" class="form-control" >
                     <option value="Rock">Rock</option>   
                     <option value="Samba">Samba</option>   
@@ -50,7 +49,7 @@
                 <span asp-validation-for="GeneroDoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CasasDeShowId" class="control-label"></label>
+                <h5>Casa de Show</h5>
                 <select asp-for="CasasDeShowId" class ="form-control" >
                     @foreach (var item in casas)
                     {

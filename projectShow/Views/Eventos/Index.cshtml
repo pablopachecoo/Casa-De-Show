@@ -7,11 +7,24 @@
     var casas = ViewBag.casa;
 }
 <h1 class="centralizar">Eventos Atuais</h1>
-@if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString))
+@if (User.Identity.IsAuthenticated && User.HasClaim("Admin", bool.TrueString) && (casas.Count >= 1))
 {
-<p>
-    <a asp-action="Create">Criar novo Evento</a>
-</p>
+    <p>
+        <div class="centralizar">
+            <a asp-action="Create">Criar novo Evento</a>
+        </div>
+    </p>
+} else if (casas.Count == 0)
+{
+    <table class="table">   
+            <tr class="centralizar">
+                <th> 
+                    <div class="alert alert-info">                 
+                        <h6><b>Cadastre uma Casa de Show para cadastrar o Evento</b></h6>
+                    </div>       
+                </th>
+            </tr>
+    </table>
 }
 <table class="table">
     <thead>
